@@ -1,0 +1,15 @@
+<form method="POST" action="">
+  
+    {% csrf_token %}
+        {{form}}
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <br>
+
+{% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+        <p class="alert alert-danger my-3">{{error}}</p>
+    {% endfor %}
+    <small><a href="{% url 'password_reset'%}" class="text-danger">Forgot Password</a></small>
+{% endif %}
+
+</form>
